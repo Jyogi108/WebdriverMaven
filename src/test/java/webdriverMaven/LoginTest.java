@@ -50,6 +50,8 @@ Thread.sleep(13000);
 	@AfterSuite
 	public void quit(){
 	driver.quit();
+	System.out.println("*******RADHEY RADHEY**********");
+
 	}
 
 }
