@@ -2,13 +2,13 @@ package webdriverMaven;
 
 import java.util.concurrent.TimeUnit;
 
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeSuite;
-import org.testng.annotations.Test;
 
 
 
@@ -16,7 +16,7 @@ public class LoginTest {
 	public static WebDriver driver;
 	
 	
-	@BeforeSuite
+	@Before
 	public void setup(){
 		driver  = new ChromeDriver();
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
@@ -24,10 +24,10 @@ public class LoginTest {
 
 	
 	}
-	@Test
+@Test
 	public void loginDo() throws InterruptedException{
 		driver.get("http://www.gmail.com");
-		driver.findElement(By.cssSelector("input#identifierId")).sendKeys("yogi.automation108");
+		driver.findElement(By.cssSelector("input#identifierId")).sendKeys("yogi.automation108");//sendKeys();
 		driver.findElement(By.xpath("//div[@id ='identifierNext'][@role='button']")).click();
 	//	Thread.sleep(3000);
 
@@ -44,14 +44,13 @@ public class LoginTest {
 		System.out.println(" Email content:   "+driver.findElement(By.xpath("//a[contains(@title, 'Inbox')]")).getAttribute("aria-label"));
 		
 		System.out.println("*********************************************************************");
-Thread.sleep(13000);
+//Thread.sleep(13000);
 	
 	}
-	@AfterSuite
+@After
 	public void quit(){
 	driver.quit();
 	System.out.println("*******RADHEY RADHEY**********");
-
 	}
 
 }
