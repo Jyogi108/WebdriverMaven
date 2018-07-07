@@ -9,6 +9,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.phantomjs.PhantomJSDriver;
 
 
 
@@ -18,7 +19,8 @@ public class LoginTest {
 	
 	@Before
 	public void setup(){
-		driver  = new ChromeDriver();
+		//driver  = new ChromeDriver();
+		driver = new PhantomJSDriver();
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		System.out.println("********************Testing on Chrome -Gmail Login Test***********************");
 
@@ -27,12 +29,16 @@ public class LoginTest {
 @Test
 	public void loginDo() throws InterruptedException{
 		driver.get("http://www.gmail.com");
+		Thread.sleep(13000);
+
 		driver.findElement(By.cssSelector("input#identifierId")).sendKeys("yogi.automation108");//sendKeys();
+		Thread.sleep(13000);
+
 		driver.findElement(By.xpath("//div[@id ='identifierNext'][@role='button']")).click();
-	//	Thread.sleep(3000);
+		Thread.sleep(3000);
 
 		driver.findElement(By.xpath("//div[@id ='password']/div/div/div/input")).sendKeys("Automation123$");
-	//	Thread.sleep(3000);
+		Thread.sleep(3000);
 
 		driver.findElement(By.xpath("//div[@id ='password']/div/div/div/input")).sendKeys(Keys.ENTER);
 		Thread.sleep(13000);
